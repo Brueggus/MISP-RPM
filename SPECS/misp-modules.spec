@@ -1,16 +1,16 @@
 %define pymajorver 3
 %define pybasever 3.6
-%define pylibdir /usr/%{_lib}/python%{pybasever}/site-packages
+%define pylibdir %{python3_sitelib}
 
 Name:		misp-modules
-Version:	1.0
-Release:	5%{?dist}
+Version:	2.4.110
+Release:	1%{?dist}
 Summary:	MISP modules for expansion services, import and export
 
 Group:		Development/Languages
 License:	GPLv3
 URL:		https://github.com/MISP/misp-modules
-Source0:	fake-tgz.tgz
+Source0:	https://github.com/MISP/misp-modules/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:    misp-modules.service
 Buildarch:  noarch
 
@@ -48,25 +48,28 @@ Requires:       python36-async_timeout, python36-idna_ssl, python36-attrs
 MISP modules for expansion services, import and export
 
 %prep
-%setup -q -n fake-tgz
+%setup -q
+sed -i "s/\(\s\+version=\).*/\1'%{version}',/" setup.py
 
 %build
 #intentionally left blank
 
 %install
-git clone https://github.com/MISP/misp-modules.git
-cd misp-modules
 python3 setup.py install --root=$RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/systemd/system
 install -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/systemd/system
 
 %files
 %{_bindir}/misp-modules
+%{_bindir}/update_misp_modules.sh
 %{pylibdir}/misp_modules
 %{pylibdir}/misp_modules-%{version}-py%{pybasever}.egg-info
 %{_sysconfdir}/systemd/system/misp-modules.service
 %exclude %{pylibdir}/tests
 
 %changelog
+* Tue Jul 09 2019 Alexander Bruegmann <mail@abruegmann.eu> - 2.4.110
+- bump to v2.4.110
+
 * Wed Jul 11 2018 Andreas Muehlemann <andreas.muehlemann@switch.ch> - 2.4.93
 - first version for python36
