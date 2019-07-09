@@ -33,7 +33,7 @@ python3 setup.py install --root=$RPM_BUILD_ROOT
 %{pylibdir}/redis-%{version}-py%{pybasever}.egg-info
 
 %changelog
-* Tue Jul 09 2019 Alexander Bruegmann <mail@abruegmann.eu> - 2.4.110
+* Tue Jul 09 2019 Alexander Bruegmann <mail@abruegmann.eu> - 3.2.1-1
 - bump to v3.2.1 to meet misp-modules' requirements
 
 * Wed Jul 11 2018 Andreas Muehlemann <andreas.muehlemann@switch.ch> - 2.10.6

@@ -1,10 +1,10 @@
 %define pymajorver 3
 %define pybasever 3.6
-%define pylibdir /usr/%{_lib}/python%{pybasever}/site-packages
+%define pylibdir %{python3_sitelib}
 
 Name:		python36-stix2_patterns
-Version:	0.6.0
-Release:	2%{?dist}
+Version:	1.1.0
+Release:	1%{?dist}
 Summary:	Validate STIX 2 Patterns
 
 Group:		Development/Languages
@@ -39,5 +39,8 @@ ln -s /%{pylibdir}/stix2patterns $RPM_BUILD_ROOT/%{pylibdir}/stix2_patterns
 %{pylibdir}/stix2_patterns-%{version}.dist-info
 
 %changelog
+* Tue Jul 09 2019 Alexander Bruegmann <mail@abruegmann.eu> - 1.1.0-1
+- update to 1.1.0 to fix dependency issues
+
 * Wed Jul 18 2018 Andreas Muehlemann <andreas.muehlemann@switch.ch> - 0.6.0
 - first version for python36

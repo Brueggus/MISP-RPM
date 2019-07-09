@@ -1,9 +1,9 @@
 %define pymajorver 3
 %define pybasever 3.6
-%define pylibdir /usr/%{_lib}/python%{pybasever}/site-packages
+%define pylibdir %{python3_sitelib}
 
 Name:		python36-domaintools_api
-Version:	0.2.2
+Version:	0.3.3
 Release:	1%{?dist}
 Summary:	DomainTools' Official Python API
 
@@ -35,5 +35,8 @@ python3 setup.py install --root=$RPM_BUILD_ROOT
 %{pylibdir}/domaintools_async/*
 
 %changelog
+* Tue Jul 09 2019 Alexander Bruegmann <mail@abruegmann.eu> - 0.3.3-1
+- update to 0.3.3 to fix dependency issues
+
 * Wed Jul 11 2018 Andreas Muehlemann <andreas.muehlemann@switch.ch> - 0.2.2
 - first version for python36
