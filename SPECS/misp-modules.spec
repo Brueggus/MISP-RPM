@@ -27,11 +27,11 @@ Requires:       python36-tornado, python36-dnspython, python36-dnspython3
 Requires:       python36-chardet, python36-nose, python36-jsonschema
 Requires:       python36-rdflib, python36-beautifulsoup4, python36-argparse
 Requires:       python36-pytz, python36-colorlog, python36-pyparsing
-Requires:       python36-isodate, python36-redis, python36-pillow
+Requires:       python36-isodate, python36-redis >= 3, python36-pillow
 Requires:       python36-pygeoip, python36-idna, python36-urllib3 < 1.23
 Requires:       python36-certifi, python36-url_normalize, python36-requests_cache
 Requires:       python36-requests, python36-urlarchiver, python36-ez_setup
-Requires:       python36-asnhistory, python36-cabby
+Requires:       python36-asnhistory, python36-cabby, python36-psutil
 Requires:       python36-dateutils, python36-furl, python36-domaintools_api
 Requires:       python36-ipasn_redis, python36-orderedmultidict, python36-passivetotal
 Requires:       python36-olefile, python36-pyaml, python36-pypdns
